@@ -1,6 +1,6 @@
-# Compound Interest Calculation
+# Even or Odd
 
-This is the twelveth task given to me. I made it according to both tablet and mobile.
+This is the 13th task given to me. I made it according to both tablet and mobile.
 
 # Files
 

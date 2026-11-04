@@ -1,6 +1,6 @@
-# Loop
+# Array and Functions
 
-This is the 14th task given to me. I made it according to both tablet and mobile.
+This is the 15th task given to me. I made it according to both tablet and mobile.
 
 # Files
 

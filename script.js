@@ -1,34 +1,106 @@
-let numbers = [12, 7, 25, 8, 19, 3, 40, 15];
+const students = [
+  {
+    name: "Salmaan Ahmed",
+    marks: 38,
+    class: "3rd",
+    address: "India",
+  },
+  {
+    name: "Riya Sharma",
+    marks: 85,
+    class: "10th",
+    address: "123, ABC Colony, Delhi",
+  },
+  {
+    name: "Rohan Patel",
+    marks: 70,
+    class: "12th",
+    address: "456, XYZ Street, Mumbai",
+  },
+  {
+    name: "Priya Singh",
+    marks: 95,
+    class: "8th",
+    address: "789, PQR Nagar, Bangalore",
+  },
+  {
+    name: "Ankit Gupta",
+    marks: 60,
+    class: "9th",
+    address: "101, LMN Road, Kolkata",
+  },
+  {
+    name: "Neha Verma",
+    marks: 80,
+    class: "11th",
+    address: "222, DEF Avenue, Chennai",
+  },
+  {
+    name: "Manoj Kumar",
+    marks: 75,
+    class: "10th",
+    address: "333, GHI Lane, Hyderabad",
+  },
+  {
+    name: "Pooja Mishra",
+    marks: 88,
+    class: "12th",
+    address: "444, STU Colony, Pune",
+  },
+  {
+    name: "Rajesh Singhania",
+    marks: 92,
+    class: "9th",
+    address: "555, VWX Street, Jaipur",
+  },
+];
 
-function findMax(arr) {
-  let max = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
+const cardContainer = document.getElementById("cardContainer");
+const searchBox = document.getElementById("searchBox");
+const searchBtn = document.getElementById("searchBtn");
+
+function renderStudents(list) {
+  if (list.length === 0) {
+    cardContainer.innerHTML = "<p>No students found.</p>";
+    return;
   }
-  return max;
+
+  cardContainer.innerHTML = list
+    .map((student) => `
+        <div class="card">
+          <div>
+            <span>
+                Student Name:
+            </span> 
+            <strong>${student.name}</strong>
+          </div>
+          <div>
+            <span>
+            Marks:</span> <strong>${student.marks}%</strong>
+          </div>
+          <div>
+            <span>Class:</span> <strong>${student.class}</strong>
+          </div>
+          <div>
+            <span>Address:</span> <strong>${student.address}</strong>
+          </div>
+        </div>
+      `,
+    )
+    .join("");
 }
 
-let calculateSum = (arr) => {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-  }
-  return sum;
-};
+function searchStudents() {
+  const query = searchBox.value.trim().toLowerCase();
 
-let countOdd = function (arr) {
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 !== 0) {
-      count++;
-    }
-  }
-  return count;
-};
+  const filtered = students.filter((student) =>
+    student.name.toLowerCase().includes(query),
+  );
 
-console.log("Array:", numbers);
-console.log("Maximum number:", findMax(numbers));
-console.log("Sum of all elements:", calculateSum(numbers));
-console.log("Count of odd numbers:", countOdd(numbers));
+  renderStudents(filtered);
+}
+
+searchBox.addEventListener("input", searchStudents);
+searchBtn.addEventListener("click", searchStudents);
+
+renderStudents(students);

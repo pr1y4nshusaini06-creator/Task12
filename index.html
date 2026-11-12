@@ -1,11 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Records</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Hi, Username</h2>
+      <button class="login-btn">Login</button>
+    </header>
+
+    <div class="search-wrap">
+      <div class="search-bar">
+        <div class="search-input">
+          <input
+            type="text"
+            id="searchBox"
+            placeholder="Search Student"
+            autocomplete="off"
+          />
+        </div>
+        <button class="search-btn" id="searchBtn">Search</button>
+      </div>
+    </div>
+
+    <div class="cards" id="cardContainer"></div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
